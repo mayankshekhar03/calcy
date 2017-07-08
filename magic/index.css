@@ -22,13 +22,15 @@ h1 {
 }
 
 #in {
-    padding:3px;
+    padding: 3px;
     font-size: 1.5em;
     text-align: right;
+    height: 30px;
 }
 
 #his{
     text-align: right;
+    height: 25px;
 }
 
 #buttons {
