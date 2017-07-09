@@ -21,10 +21,15 @@ $(document).ready(function(){
         if (symbol.split('').length > 0 && prev.length > 0 && current.length === 0){
             symbol = '';
         }
-        console.log(symbol);
         current = [];
         $('#in').text('');
         $('#his').text(prev.join('') + ' ' + symbol + ' ');
+    });
+    
+    $('#equal').click(function(){
+        if (prev.length > 0 && current.length > 0 && symbol.length > 0) {
+            console.log(prev.join('') + ' ' + symbol + ' ' + current.join(''));
+        }
     });
     
     $('#divide').click(function(){
@@ -35,7 +40,6 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = '/';
-                console.log(prev);
                 $('#in').html('/');
                 $('#his').append(' / ');
             }
@@ -50,7 +54,6 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = 'x';
-                console.log(prev);
                 $('#in').html('x');
                 $('#his').append(' x ');
             }
@@ -65,7 +68,6 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = '-';
-                console.log(prev);
                 $('#in').html('-');
                 $('#his').append(' - ');
             }
@@ -80,7 +82,6 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = '+';
-                console.log(prev);
                 $('#in').html('+');
                 $('#his').append(' + ');
             }
