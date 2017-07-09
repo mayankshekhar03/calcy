@@ -77,6 +77,12 @@ $(document).ready(function(){
                 $('#in').html('/');
                 $('#his').append(' / ');
             }
+        }else if (symbol.split('').length > 0 && current.length > 0){
+            var a = calculate(prev.join(''), symbol, current.join(''));
+            current = [];
+            $('#in').html('/');
+            $('#his').append(' / ');
+            symbol = '/';
         }
     });
     
@@ -92,6 +98,12 @@ $(document).ready(function(){
                 $('#in').html('x');
                 $('#his').append(' x ');
             }
+        }else if (symbol.split('').length > 0 && current.length > 0){
+            var a = calculate(prev.join(''), symbol, current.join(''));
+            current = [];
+            $('#in').html('x');
+            $('#his').append(' x ');
+            symbol = 'x';
         }
     });
     
@@ -107,6 +119,12 @@ $(document).ready(function(){
                 $('#in').html('-');
                 $('#his').append(' - ');
             }
+        }else if (symbol.split('').length > 0 && current.length > 0){
+            var a = calculate(prev.join(''), symbol, current.join(''));
+            current = [];
+            $('#in').html('-');
+            $('#his').append(' - ');
+            symbol = '-';
         }
     });
     
@@ -122,6 +140,12 @@ $(document).ready(function(){
                 $('#in').html('+');
                 $('#his').append(' + ');
             }
+        }else if (symbol.split('').length > 0 && current.length > 0){
+            var a = calculate(prev.join(''), symbol, current.join(''));
+            current = [];
+            $('#in').html('+');
+            $('#his').append(' + ');
+            symbol = '+';
         }
     });
     
