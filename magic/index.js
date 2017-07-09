@@ -1,6 +1,8 @@
-var current = [];
-var prev    = [];
-var symbol  = '';
+var current   = [];
+var prev      = [];
+var symbol    = '';
+var ans       = 0;
+var pointused = false;
 
 
 $(document).ready(function(){
@@ -8,59 +10,276 @@ $(document).ready(function(){
         current = [];
         prev    = [];
         symbol  = '';
+        ans = 0;
+        pointused = false;
         $('#in').text('');
         $('#his').text('');
     });
     
+    $('#ce').click(function(){
+        pointused = false;
+        if (symbol.split('').length > 0 && prev.length > 0 && current.length === 0){
+            symbol = '';
+        }
+        console.log(symbol);
+        current = [];
+        $('#in').text('');
+        $('#his').text(prev.join('') + ' ' + symbol + ' ');
+    });
+    
+    $('#divide').click(function(){
+        if (symbol.split('').length === 0){
+            if(current.length > 0){
+                prev = current;
+                current = [];
+            }
+            if(prev.length > 0 && current.length === 0) {
+                symbol = '/';
+                console.log(prev);
+                $('#in').html('/');
+                $('#his').append(' / ');
+            }
+        }
+    });
+    
+    $('#multi').click(function(){
+        if (symbol.split('').length === 0){
+            if(current.length > 0){
+                prev = current;
+                current = [];
+            }
+            if(prev.length > 0 && current.length === 0) {
+                symbol = 'x';
+                console.log(prev);
+                $('#in').html('x');
+                $('#his').append(' x ');
+            }
+        }
+    });
+    
+    $('#minus').click(function(){
+        if (symbol.split('').length === 0){
+            if(current.length > 0){
+                prev = current;
+                current = [];
+            }
+            if(prev.length > 0 && current.length === 0) {
+                symbol = '-';
+                console.log(prev);
+                $('#in').html('-');
+                $('#his').append(' - ');
+            }
+        }
+    });
+    
+    $('#plus').click(function(){
+        if (symbol.split('').length === 0){
+            if(current.length > 0){
+                prev = current;
+                current = [];
+            }
+            if(prev.length > 0 && current.length === 0) {
+                symbol = '+';
+                console.log(prev);
+                $('#in').html('+');
+                $('#his').append(' + ');
+            }
+        }
+    });
+    
     $('#one').click(function(){
-        current.push(1);
-        $('#in').append(1);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(1);
+                $('#in').append(1);
+                $('#his').append(1);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#two').click(function(){
-        current.push(2);
-        $('#in').append(2);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(2);
+                $('#in').append(2);
+                $('#his').append(2);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#three').click(function(){
-        current.push(3);
-        $('#in').append(3);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(3);
+                $('#in').append(3);
+                $('#his').append(3);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#four').click(function(){
-        current.push(4);
-        $('#in').append(4);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(4);
+                $('#in').append(4);
+                $('#his').append(4);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#five').click(function(){
-        current.push(5);
-        $('#in').append(5);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(5);
+                $('#in').append(5);
+                $('#his').append(5);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#six').click(function(){
-        current.push(6);
-        $('#in').append(6);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(6);
+                $('#in').append(6);
+                $('#his').append(6);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#seven').click(function(){
-        current.push(7);
-        $('#in').append(7);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(7);
+                $('#in').append(7);
+                $('#his').append(7);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#eight').click(function(){
-        current.push(8);
-        $('#in').append(8);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(8);
+                $('#in').append(8);
+                $('#his').append(8);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#nine').click(function(){
-        current.push(9);
-        $('#in').append(9);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(9);
+                $('#in').append(9);
+                $('#his').append(9);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
     });
     
     $('#zero').click(function(){
-        if (current.length >= 1) {
-            current.push(0);
-            $('#in').append(0);
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        
+        if(prev.length > 0 && symbol.split('').length === 0) {
+            alert('Please enter an operator first.');
+        }else {
+            if(current.length < 10){
+                current.push(0);
+                $('#in').append(0);
+                $('#his').append(0);
+            }else{
+                alert('Length of operands greater than ten not supported!');
+            }
+        }
+    });
+    
+    $('#point').click(function(){
+        if (symbol.split('').length > 0 && current.length === 0){
+            $('#in').text('');
+        }
+        if(current.length < 9 && pointused === false){
+            current.push('.');
+            $('#in').append('.');
+            $('#his').append('.');
+            pointused = true;
+        }else if (pointused === true){
+            alert('Point already used!');
+        }else {
+            alert('Number length greater than 10 not supported.')
         }
     });
 });
