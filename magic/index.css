@@ -30,7 +30,7 @@ h1 {
 
 #his{
     text-align: right;
-    height: 25px;
+    height: 50px;
 }
 
 #buttons {
@@ -53,7 +53,7 @@ button {
 
 button:active {
     transform: translate(0px, 3px);
-  box-shadow: none;
+    box-shadow: none;
 }
 
 #zero {

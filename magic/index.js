@@ -4,6 +4,33 @@ var symbol    = '';
 var ans       = 0;
 var pointused = false;
 
+function calculate(op1, op, op2) {
+    op1 = Number(op1);
+    op2 = Number(op2);
+    switch(op){
+        case '+':
+            ans = op1 + op2;
+            prev = String(ans).split('');
+            return ans;
+            break;
+        case 'x':
+            ans = op1 * op2;
+            prev = String(ans).split('');
+            return ans;
+            break;
+        case '-':
+            ans = op1 - op2;
+            prev = String(ans).split('');
+            return ans;
+            break;
+        case '/':
+            ans = op1 / op2;
+            prev = String(ans).split('');
+            return ans;
+            break;
+    }
+}
+
 
 $(document).ready(function(){
     $('#ac').click(function(){
@@ -28,7 +55,13 @@ $(document).ready(function(){
     
     $('#equal').click(function(){
         if (prev.length > 0 && current.length > 0 && symbol.length > 0) {
-            console.log(prev.join('') + ' ' + symbol + ' ' + current.join(''));
+            var a = calculate(prev.join(''), symbol, current.join(''));
+            /* Calculate ans and put prev = ans and symbol = '' and current = [] */
+            $('#in').text(ans);
+            symbol = '';
+            current = [];
+            pointused = false;
+            answer = 0;
         }
     });
     
@@ -40,6 +73,7 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = '/';
+                pointused = false;
                 $('#in').html('/');
                 $('#his').append(' / ');
             }
@@ -54,6 +88,7 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = 'x';
+                pointused = false;
                 $('#in').html('x');
                 $('#his').append(' x ');
             }
@@ -68,6 +103,7 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = '-';
+                pointused = false;
                 $('#in').html('-');
                 $('#his').append(' - ');
             }
@@ -82,6 +118,7 @@ $(document).ready(function(){
             }
             if(prev.length > 0 && current.length === 0) {
                 symbol = '+';
+                pointused = false;
                 $('#in').html('+');
                 $('#his').append(' + ');
             }
@@ -272,15 +309,19 @@ $(document).ready(function(){
         if (symbol.split('').length > 0 && current.length === 0){
             $('#in').text('');
         }
-        if(current.length < 9 && pointused === false){
-            current.push('.');
-            $('#in').append('.');
-            $('#his').append('.');
-            pointused = true;
-        }else if (pointused === true){
-            alert('Point already used!');
-        }else {
-            alert('Number length greater than 10 not supported.')
+        if (prev.length > 0 && symbol.split('').length === 0){
+            alert('Please enter an operator first.');
+        }else{
+            if(current.length < 9 && pointused === false){
+                current.push('.');
+                $('#in').append('.');
+                $('#his').append('.');
+                pointused = true;
+            }else if (pointused === true){
+                alert('Point already used!');
+            }else {
+                alert('Number length greater than 10 not supported.')
+            }
         }
     });
 });
